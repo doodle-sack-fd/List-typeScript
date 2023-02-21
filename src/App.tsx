@@ -1,30 +1,9 @@
+import React from 'react'
 
-import { NavLink } from 'react-router-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import TodoItemPage from './components/TodoItemPage';
-import TodosPage from './components/TodosPage';
-import UserItemPage from './components/UserItemPage';
-import UserPage from './components/UserPage';
-
-function App() {
-
-    return (
-        <BrowserRouter>
-            <div>
-                <NavLink to="/users">Пользователи</NavLink>
-                <NavLink to='/todos'>Список дел</NavLink>
-            </div>
-            <Routes>
-                <Route path={'/users'} element={<UserPage />} />
-                <Route path={'/todos'} element={<TodosPage />} />
-                <Route path={'/user/:id'} element={<UserItemPage />} />
-                <Route path={'/todo/:id'} element={<TodoItemPage />} />
-            </Routes>
-
-
-
-        </BrowserRouter>
-    )
+const App = () => {
+  return (
+    <div>App</div>
+  )
 }
 
-export default App;
+export default App
