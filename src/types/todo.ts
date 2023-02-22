@@ -1,29 +1,36 @@
 /* Описание типа состояния */
-export interface UserState {
-    users: any[];
+export interface TodoState {
+    todos: any[];
     loading: boolean;
-    error: string | null
+    error: null | string;
+    page: number;
+    limit: number;
 }
 
-/* Описание интерфейса для action's */
+/* Описание интерфейса для action's*/
 
-export enum UserActionTypes {
-    FETCH_USERS = "FETCH_USERS",
-    FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS",
-    FETCH_USERS_ERROR = "FETCH_USERS_ERROR"
+export enum TodoActionTypes {
+    FETCH_TODOS = "FETCH_TODOS",
+    FETCH_TODOS_SUCCESS = "FETCH_TODOS_SUCCESS",
+    FETCH_TODOS_ERROR = "FETCH_TODOS_ERROR",
+    SET_TODO_PAGE = "SET_TODO_PAGE",
 }
 
-interface FetchUserAction {
-    type: UserActionTypes.FETCH_USERS;
+interface FetchTodoAction {
+    type: TodoActionTypes.FETCH_TODOS;
 }
-interface FetchUserSuccessAction {
-    type: UserActionTypes.FETCH_USERS_SUCCESS;
-    payload: any[]
+interface FetchTodoSuccessAction {
+    type: TodoActionTypes.FETCH_TODOS_SUCCESS;
+    payload: any[];
 }
-interface FetchUserErrorAction {
-    type: UserActionTypes.FETCH_USERS_ERROR;
+interface FetchTodoErrorAction {
+    type: TodoActionTypes.FETCH_TODOS_ERROR;
     payload: string;
 }
+interface SetTodoPageAction {
+    type: TodoActionTypes.SET_TODO_PAGE;
+    payload: number;
+}
 
-/* action может принимать один из 3х типов*/
-export type UserAction = FetchUserAction | FetchUserSuccessAction | FetchUserErrorAction
+/* action может принимать один из 4х типов*/
+export type TodoAction = FetchTodoAction | FetchTodoSuccessAction | FetchTodoErrorAction | SetTodoPageAction
